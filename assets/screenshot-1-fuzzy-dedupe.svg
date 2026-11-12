@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="1280" height="800">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="100%" height="100%">
   <rect width="1280" height="800" fill="#f1f5f9"/>
   <rect width="1280" height="56" fill="#0f172a"/>
   <rect x="24" y="13" width="32" height="30" rx="6" fill="#14b8a6"/>
   <text x="40" y="33" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#0f172a" text-anchor="middle">CS</text>
-  <text x="68" y="34" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffffff">1. Fuzzy & Exact Remove Duplicates (4-Step Wizard)</text>
-  <text x="1256" y="34" font-family="system-ui, sans-serif" font-size="13" fill="#5eead4" text-anchor="end"> Scope: spreadsheets.currentonly (Zero Drive Access)</text>
+  <text x="68" y="34" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffffff">1. Fuzzy &amp; Exact Remove Duplicates (4-Step Wizard)</text>
+  <text x="1256" y="34" font-family="system-ui, sans-serif" font-size="13" fill="#5eead4" text-anchor="end">Scope: spreadsheets.currentonly (Zero Drive Access)</text>
 
   <!-- Sheet Grid -->
   <rect x="24" y="76" width="916" height="696" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
