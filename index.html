@@ -298,42 +298,13 @@
     </header>
 
     <main class="container">
-      <!-- Checkout Success Pro License Display -->
-      <section id="checkout-success-banner" style="display: none; background: #ecfdf5; border: 2px solid #10b981; border-radius: 12px; padding: 28px; margin: 28px 0 36px; box-shadow: 0 12px 30px rgba(16, 185, 129, 0.16);">
-        <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;">
-          <span style="font-size: 2.2rem; line-height: 1;">🎉</span>
-          <div>
-            <h2 style="margin: 0 0 4px; font-size: 1.6rem; color: #065f46;">Payment Successful! Welcome to CleanSheet Pro</h2>
-            <p style="margin: 0; color: #047857; font-size: 1rem;">
-              Your <strong>$5.00/month</strong> subscription is active. Here is your Pro License Key to unlock all features:
-            </p>
-          </div>
-        </div>
-
-        <div style="background: #ffffff; border: 1px solid #a7f3d0; border-radius: 8px; padding: 18px; margin: 16px 0;">
-          <div style="font-size: 0.8rem; font-weight: 700; color: #065f46; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">
-            Your CleanSheet Pro License Key:
-          </div>
-          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <code id="pro-license-key-val" style="font-size: 1.4rem; font-weight: 800; color: #0f172a; background: #f8fafc; padding: 8px 16px; border-radius: 6px; letter-spacing: 1.5px; border: 1px solid #cbd5e1; user-select: all;">CS-PRO-LIVE-2026-A8K2</code>
-            <button id="copy-pro-key-btn" type="button" style="background: #0f766e; color: #ffffff; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: background 0.2s;">
-              📋 Copy License Key
-            </button>
-            <span id="copy-pro-key-toast" style="color: #059669; font-weight: 700; display: none; font-size: 0.95rem;">
-              ✓ Copied to clipboard!
-            </span>
-          </div>
-        </div>
-
-        <h3 style="margin: 20px 0 10px; font-size: 1.1rem; color: #065f46;">How to Activate in Google Sheets (Takes 10 Seconds):</h3>
-        <ol style="margin: 0 0 16px; padding-left: 22px; color: #065f46; line-height: 1.7; font-size: 0.95rem;">
-          <li>Open any Google Sheet.</li>
-          <li>In the menu bar, click <strong>Extensions &gt; CleanSheet &gt; Open CleanSheet Sidebar</strong>.</li>
-          <li>At the bottom of the CleanSheet sidebar, click <strong>"Have a CleanSheet Pro License Key?"</strong>.</li>
-          <li>Paste your license key above and click <strong>Activate Pro</strong>. Pro is now active for your account!</li>
-        </ol>
-        <p style="margin: 0; font-size: 0.85rem; color: #047857;">
-          Save this key for your records. If you ever need help or a replacement key, simply contact us at <a href="mailto:sdai.code@gmail.com" style="color: #0f766e; font-weight: 700; text-decoration: underline;">sdai.code@gmail.com</a>.
+      <!-- Checkout success notice (no license key is issued client-side) -->
+      <section id="checkout-success-banner" style="display: none; background: #ecfdf5; border: 2px solid #10b981; border-radius: 12px; padding: 24px; margin: 28px 0 36px;">
+        <h2 style="margin: 0 0 6px; font-size: 1.5rem; color: #065f46;">Payment received. Thank you for choosing CleanSheet Pro!</h2>
+        <p style="margin: 0; color: #047857;">
+          A receipt from Stripe is on its way to your inbox. Return to Google Sheets and reopen the CleanSheet sidebar.
+          If Pro isn't active within a few minutes, email
+          <a href="mailto:sdai.code@gmail.com" style="color: #0f766e; font-weight: 700;">sdai.code@gmail.com</a> with your receipt.
         </p>
       </section>
 
@@ -577,46 +548,10 @@
       </div>
     </footer>
     <script>
-      (function () {
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('checkout') === 'success') {
-          const banner = document.getElementById('checkout-success-banner');
-          if (banner) {
-            banner.style.display = 'block';
-            banner.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-            // Generate or retrieve stored license key for this customer
-            const stored = localStorage.getItem('cs_pro_license_key');
-            let key = stored;
-            if (!key) {
-              const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
-              let code = '';
-              for (let i = 0; i < 4; i++) {
-                code += chars.charAt(Math.floor(Math.random() * chars.length));
-              }
-              key = 'CS-PRO-LIVE-2026-' + code;
-              localStorage.setItem('cs_pro_license_key', key);
-            }
-            const keyEl = document.getElementById('pro-license-key-val');
-            if (keyEl) keyEl.textContent = key;
-
-            const copyBtn = document.getElementById('copy-pro-key-btn');
-            const toast = document.getElementById('copy-pro-key-toast');
-            if (copyBtn) {
-              copyBtn.addEventListener('click', function () {
-                navigator.clipboard.writeText(key).then(function () {
-                  if (toast) {
-                    toast.style.display = 'inline';
-                    setTimeout(function () {
-                      toast.style.display = 'none';
-                    }, 3000);
-                  }
-                });
-              });
-            }
-          }
-        }
-      })();
+      if (new URLSearchParams(window.location.search).get('checkout') === 'success') {
+        const b = document.getElementById('checkout-success-banner');
+        if (b) b.style.display = 'block';
+      }
     </script>
   </body>
 </html>
