@@ -7,7 +7,7 @@
     <title>CleanSheet — Privacy-First Duplicate Remover &amp; CRM Cleaner for Google Sheets</title>
     <meta
       name="description"
-      content="Find exact and fuzzy duplicates, consolidate duplicate rows with Pick Winner rules, split human names, and standardize phones &amp; emails in Google Sheets — using only spreadsheets.currentonly."
+      content="Find exact and fuzzy duplicates, combine duplicate rows, split human names, clean CRM columns, and run AI prompts in Google Sheets — using only spreadsheets.currentonly."
     />
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icon-32.png" />
     <style>
@@ -174,7 +174,7 @@
       }
       .gallery {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
         gap: 24px;
       }
       .gallery img {
@@ -313,10 +313,10 @@
         <span class="scope-pill" style="background: #f0fdfa; color: #0f766e; border-color: #99f6e4">
           Zero Google Drive Access · Dry-Run Preview · 1-Click Undo
         </span>
-        <h1>Clean Messy CRM Sheets, Dedupe Fuzzy Rows &amp; Consolidate Deals in Seconds</h1>
+        <h1>Clean Messy CRM Sheets, Dedupe Fuzzy Rows &amp; Consolidate Data in Seconds</h1>
         <p class="lead">
-          CleanSheet runs fuzzy Jaro-Winkler deduplication, 14-function duplicate consolidation, smart name
-          splitting, and E.164 phone formatting right inside your browser—requiring only
+          CleanSheet runs fuzzy Jaro-Winkler deduplication, duplicate row consolidation (Join &amp; Math), smart
+          name splitting, 9 column cleaners, and GPT AI normalization right inside your browser—requiring only
           <code>spreadsheets.currentonly</code>.
         </p>
         <div class="cta-row">
@@ -325,8 +325,8 @@
         </div>
         <img
           class="hero-shot"
-          src="./assets/screenshot-1-fuzzy-dedupe.svg"
-          alt="CleanSheet 4-Step Fuzzy Deduplication Wizard and Dry-Run Preview in Google Sheets"
+          src="./assets/screenshot-1-fuzzy-dedupe.png"
+          alt="CleanSheet Tool 1 Deduplicate Rows with Exact and Fuzzy Matching and Live Dry-Run Preview in Google Sheets"
           fetchpriority="high"
           width="1280"
           height="800"
@@ -341,21 +341,22 @@
         </p>
         <div class="grid-3">
           <div class="card">
-            <h3>1. Exact &amp; Fuzzy Remove Duplicates</h3>
+            <h3>1. Exact &amp; Fuzzy Deduplicate Rows</h3>
             <p>
-              4 modes (Duplicates Only, All Occurrences, Unique Only, Unique + 1st) with Jaro-Winkler similarity
-              (75%–95%) and automatic legal suffix stripping (<code>Stripe, Inc.</code> = <code>Stripe LLC</code>).
+              4 modes (Duplicates (Skip 1st), All Dupes (Incl. 1st), Unique Rows Only, 1st + Unique) with Jaro-Winkler
+              similarity (80%–96%) and automatic 30+ legal suffix stripping (<code>Stripe, Inc.</code> =
+              <code>Stripe LLC</code>).
             </p>
           </div>
           <div class="card">
-            <h3>2. Combine Rows + Pick Winner Rules</h3>
+            <h3>2. Combine Duplicate Rows (Join &amp; Math)</h3>
             <p>
-              All 14 math aggregations (SUM, AVERAGE, MEDIAN, MODE, STDEV, VAR…) plus CRM Winner Rules: Keep Most
-              Recent by Date column, Keep Longest, or Merge Unique with custom delimiters.
+              Consolidate duplicate records into one row with live Before &rarr; Merged group preview: join unique
+              values with custom delimiters or calculate SUM, AVERAGE, COUNT, MAX, and MIN.
             </p>
           </div>
           <div class="card">
-            <h3>3. Smart Human Name Splitter</h3>
+            <h3>3. Smart Human Name Splitting</h3>
             <p>
               Handles inverted commas (<code>Dai, Steve</code>), salutations (<code>Dr.</code>, <code>Prof.</code>),
               nobiliary particles (<code>de la Cruz</code>, <code>van Beethoven</code>), and credentials
@@ -363,25 +364,26 @@
             </p>
           </div>
           <div class="card">
-            <h3>4. E.164 Phone, Email &amp; UTM Hygiene</h3>
+            <h3>4. 9 1-Click Column Hygiene Tools</h3>
             <p>
-              Standardizes phone numbers to E.164, International, or National format; cleans
-              <code>&lt;mailto:...&gt;</code> emails; and strips <code>utm_*</code>, <code>gclid</code>, and
-              <code>fbclid</code> parameters in 1 click.
+              Format phones (Compact <code>+1415...</code>, Local <code>(415)...</code>, Intl <code>+1 415...</code>),
+              clean <code>&lt;mailto:...&gt;</code> emails, extract domains, strip <code>utm_*</code> /
+              <code>gclid</code> / <code>fbclid</code> params, split delimited text, change case, format dates, and trim
+              noise.
             </p>
           </div>
           <div class="card">
-            <h3>5. Micro-AI Batch Normalizer</h3>
+            <h3>5. AI Normalizer (Custom Prompt &amp; 7 Presets)</h3>
             <p>
-              Maps raw job titles into standard B2B department personas and canonicalizes brand names in 100-row
-              batches backed by SHA-256 content caching (cached hits use 0 AI credits).
+              Run any row-by-row custom GPT prompt or 7 built-in presets (Clean Company, Job &rarr; Persona, Classify,
+              Extract, Summarize, Translate, Split Address) backed by SHA-256 caching (0 credits on repeat cache hits).
             </p>
           </div>
           <div class="card">
             <h3>6. Dry-Run Preview &amp; 1-Click Undo</h3>
             <p>
-              Inspect exact duplicate clusters before modifying a single cell, and restore your sheet in 1 click
-              from an automatic hidden snapshot tab inside the same workbook.
+              Inspect exact duplicate clusters or before/after changes prior to writing a cell, and restore in 1 click
+              from an automatic undo patch or hidden backup tab inside the same workbook.
             </p>
           </div>
         </div>
@@ -392,29 +394,29 @@
         <p class="section-sub">Built for the 300px Google Sheets sidebar with zero horizontal scrolling.</p>
         <div class="gallery">
           <img
-            src="./assets/screenshot-2-combine-rows.svg"
-            alt="Combine Duplicate Rows with 14 Math Aggregations and Pick Winner Rules"
+            src="./assets/screenshot-2-combine-rows.png"
+            alt="Tool 2 Combine Duplicate Rows with Join Unique Values, Math Aggregations, and Live Group Preview"
             loading="lazy"
             width="1280"
             height="800"
           />
           <img
-            src="./assets/screenshot-3-split-names.svg"
-            alt="Smart Human Name Splitter handling titles, particles, and credentials"
+            src="./assets/screenshot-3-split-names.png"
+            alt="Tool 3 Clean and Split Columns with 9 1-Click Column Tools including Split Names and Format Phones"
             loading="lazy"
             width="1280"
             height="800"
           />
           <img
-            src="./assets/screenshot-4-smart-clean.svg"
-            alt="Smart Clean E.164 Phone Formatter, Email Cleaner, and UTM Stripper"
+            src="./assets/screenshot-4-smart-clean.png"
+            alt="Tool 4 AI Normalizer with Custom Prompt, 7 Smart Presets, and SHA-256 Cache Hits"
             loading="lazy"
             width="1280"
             height="800"
           />
           <img
-            src="./assets/screenshot-5-micro-ai.svg"
-            alt="Micro-AI Batch Normalizer with SHA-256 Content Caching"
+            src="./assets/screenshot-5-micro-ai.png"
+            alt="Privacy-First Zero Google Drive Access and Non-Destructive 1-Click Undo"
             loading="lazy"
             width="1280"
             height="800"
@@ -442,12 +444,12 @@
             <tr>
               <td><strong>Dry-Run Preview Before Writing</strong></td>
               <td>No (mutates sheet immediately)</td>
-              <td><strong>Yes — live Dry-Run Match Inspector</strong></td>
+              <td><strong>Yes — live Dry-Run Match &amp; Before/After Inspector</strong></td>
             </tr>
             <tr>
               <td><strong>1-Click Non-Destructive Undo</strong></td>
               <td>Optional manual backup copy</td>
-              <td><strong>Automatic hidden snapshot tab + 1-Click Restore</strong></td>
+              <td><strong>Automatic undo patch / hidden backup tab + 1-Click Restore</strong></td>
             </tr>
             <tr>
               <td><strong>Fuzzy Deduplication (Typos &amp; Inc./LLC)</strong></td>
@@ -455,9 +457,9 @@
               <td><strong>Built-in Jaro-Winkler + 30+ legal suffix canonicalizer</strong></td>
             </tr>
             <tr>
-              <td><strong>Combine Rows Pick-Winner Rules</strong></td>
-              <td>Merge / Math only</td>
-              <td><strong>14 Math Functions + Keep Most Recent by Date / Longest</strong></td>
+              <td><strong>Combine Duplicate Rows (Join &amp; Math)</strong></td>
+              <td>Basic merge without live group preview</td>
+              <td><strong>Join Unique Values + SUM, AVERAGE, COUNT, MAX &amp; MIN + Live Preview</strong></td>
             </tr>
             <tr>
               <td><strong>Multi-Account Sign-In Reliability</strong></td>
@@ -471,7 +473,8 @@
       <section id="pricing" class="block">
         <h2 class="section-title">Simple, Coffee-Priced Plans</h2>
         <p class="section-sub">
-          Unlimited Dry-Run Previews &amp; up to 1,000 rows/run are 100% free forever. One simple $5/month plan unlocks unlimited rows, Fuzzy Jaro-Winkler apply, &amp; 15,000 AI rows/mo.
+          Unlimited Dry-Run Previews &amp; up to 1,000 rows/run are 100% free forever. CleanSheet Pro starts at
+          $5/month to unlock unlimited rows, Fuzzy Jaro-Winkler apply, &amp; 15,000 AI rows/mo.
         </p>
         <div class="grid-3" style="max-width: 780px; margin: 0 auto">
           <div class="card">
@@ -479,18 +482,18 @@
             <p><strong>Forever Free · No Credit Card Needed</strong></p>
             <ul>
               <li>Unlimited Dry-Run Previews on any sheet size</li>
-              <li>Clean up to 1,000 rows/run (Delete/Clear/Highlight Exact Duplicates, Split Names, Text Clean)</li>
-              <li>100 Micro-AI row credits / month (cache hits cost 0)</li>
+              <li>Clean up to 1,000 rows/run (Exact Dedupe, Combine Rows, All 9 Column Tools)</li>
+              <li>100 AI Normalizer row credits / month (cache hits cost 0)</li>
               <li>1-Click Non-Destructive Undo</li>
             </ul>
           </div>
           <div class="card" style="border-color: #0f766e; background: #f0fdfa">
-            <h3>CleanSheet Pro — $5/month</h3>
-            <p><strong>Single Simple Plan · Cancel Anytime</strong></p>
+            <h3>CleanSheet Pro — from $5/mo</h3>
+            <p><strong>Flexible Monthly / Annual / Lifetime Plans</strong></p>
             <ul>
-              <li>Unlimited rows per run + Fuzzy Jaro-Winkler Dedupe</li>
-              <li>Combine Rows CRM Pick-Winner Rules (Most Recent / Longest) &amp; Move to New Tab</li>
-              <li>15,000 Micro-AI row credits / month (<code>gpt-6-luna</code>)</li>
+              <li>Unlimited rows per run + Fuzzy Jaro-Winkler apply</li>
+              <li>Move or Copy duplicates to a new sheet tab &amp; unlimited saved scenarios</li>
+              <li>15,000 AI Normalizer row credits / month</li>
               <li>Priority support &amp; all Pro updates</li>
             </ul>
             <div style="margin-top: 16px; padding: 12px 14px; border-radius: 8px; background: #ffffff; border: 1px solid #99f6e4; font-size: 0.9rem; color: #0f172a">
@@ -521,10 +524,10 @@
         <details>
           <summary>Does my spreadsheet data leave my browser?</summary>
           <div class="faq-body">
-            For all deterministic and fuzzy tools (Remove Duplicates, Combine Duplicate Rows, Split Names, E.164
-            Phone Formatting, Email &amp; UTM Cleaning, Change Case, and Space/HTML Trimming), 100% of processing
-            runs locally inside your browser iframe. Only if you explicitly click the optional Micro-AI Batch
-            Normalizer button are the selected column cells sent over TLS to our stateless normalizer API.
+            For all deterministic and fuzzy tools (Deduplicate Rows, Combine Duplicate Rows, Split Names, Format
+            Phones, Email Cleaning, Domain Extraction, UTM Cleaning, Change Case, Date Formatting, and Space/HTML
+            Trimming), 100% of processing runs locally inside your browser iframe. Only if you explicitly run the
+            optional AI Normalizer tool are the selected column cells sent over TLS to our normalization API.
           </div>
         </details>
         <details>
@@ -555,7 +558,8 @@
       </div>
     </footer>
     <script>
-      if (new URLSearchParams(window.location.search).get('checkout') === 'success') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('upgraded') === '1' || params.get('checkout') === 'success') {
         const b = document.getElementById('checkout-success-banner');
         if (b) b.style.display = 'block';
       }

@@ -94,16 +94,17 @@
       <h2>2. How Your Spreadsheet Data Is Processed</h2>
       <ul>
         <li>
-          <strong>100% In-Browser Deterministic &amp; Fuzzy Processing:</strong> When you run Remove Duplicates,
-          Combine Duplicate Rows, Split Names, E.164 Phone Formatting, Email Normalization, URL Tracking Parameter
-          Stripping, Change Case, or Whitespace/HTML Trimming, your spreadsheet cells are processed entirely inside
-          your web browser and Google Apps Script. None of this data is transmitted to external servers.
+          <strong>100% In-Browser Deterministic &amp; Fuzzy Processing:</strong> When you run Deduplicate Rows,
+          Combine Duplicate Rows, Split Names, Split Text, Phone Number Formatting, Email Cleaning, Domain
+          Extraction, URL Tracking Parameter Stripping, Date Formatting, Change Case, or Whitespace/HTML Trimming,
+          your spreadsheet cells are processed entirely inside your web browser and Google Apps Script. None of this
+          data is transmitted to external servers.
         </li>
         <li>
-          <strong>Optional Micro-AI Batch Normalizer:</strong> Only when you explicitly click the optional
-          <em>Micro-AI Batch Normalizer</em> button are the cells of your selected column transmitted over encrypted
-          TLS to our stateless normalization endpoint to return standardized values. We never use customer
-          spreadsheet data to train or fine-tune AI models.
+          <strong>Optional AI Normalizer:</strong> Only when you explicitly run the optional
+          <em>AI Normalizer</em> tool are the cells of your selected column (plus your selected preset/prompt)
+          transmitted over encrypted TLS to our normalization endpoint to return standardized values. We never use
+          customer spreadsheet data to train or fine-tune AI models.
         </li>
       </ul>
 
@@ -118,7 +119,7 @@
           per-user <code>PropertiesService.getUserProperties()</code> container associated with your Google account.
         </li>
         <li>
-          <strong>Account &amp; Quota Metadata:</strong> To enforce Free vs. Pro monthly Micro-AI row quotas, we
+          <strong>Account &amp; Quota Metadata:</strong> To enforce Free vs. Pro monthly AI Normalizer row quotas, we
           store an anonymized user identifier (<code>Session.getTemporaryActiveUserKey()</code>), plan tier, and
           credit counter.
         </li>
